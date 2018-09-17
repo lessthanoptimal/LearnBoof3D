@@ -14,4 +14,5 @@ Topics:
 
 Reading List
 * Multiview Book:
-* CS231A - Lecture BLAH
+* CS231A: 
+  * Lecture 2 "Camera Models"

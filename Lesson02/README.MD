@@ -1,14 +1,19 @@
-# Homographies and Calibration Targets
+# Intrinsic Camera Calibration
 
 BoofCV Demonstrations
-* BLAH BLAH
+* CalibratePinholePlanarGuiApp
 
 BoofCV Examples
-* BLAH BLAH
+* ExampleCalibrateMonocular
 
-In this lesson we will explore using homographies to map pixels from one image to another. Instead of
-using nature features we will use calibration targets as a way to simply the problem.
+This lesson is focused on camera calibration. You will learn to use 
 
-Required Reading:
+Topics:
+* Camera Calibration
+* Undistorting Images
 
-BLAH BLAH
+Reading List
+* Multiview Book:
+* CS231A: 
+  * Lecture 3 "Camera Models II and Camera Calibration"
+* 
