@@ -82,7 +82,6 @@ public class Exercise02 {
                 cameraX.plusIP(worldToCamera.T); // inplace addition X = X + T
 
                 // TODO Problem 1: Don't render features which are behind camera. Check to see if z is positive
-                //                 before continuing
 
                 // pixelX = K*cameraX
                 // This function will autmatically convert from homogneous coordinates into 2D coordinates
