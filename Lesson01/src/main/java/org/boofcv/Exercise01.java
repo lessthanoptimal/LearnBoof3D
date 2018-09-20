@@ -66,5 +66,9 @@ public class Exercise01 {
         // 2) Add skew to the camera model. What happens?
         // 3) What happens if you put the cloud behind the camera? Why is that?
         // 4) See if you can change CameraPinhole so that the image is 900x900 pixels but everything is rendered in the same relative location
+        //    Let's say a point appears at (x,y) it's relative location will be (x/600,y/600).
+        //    The goal of this problem is to find the camera model so that (x/900,y/900) gives the same solution for
+        //    all points.
+        //    Write your solution inside of YourCode01 and test it using the unit test in TestYourCode01
     }
 }
