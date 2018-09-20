@@ -18,6 +18,8 @@ import georegression.struct.se.SpecialEuclideanOps_F64;
 import org.boofcv.GenerateSimulatedMarkers;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Let's see if you understand everything we just worked on. You will render a 3D point onto the image
@@ -30,17 +32,15 @@ public class Exercise05 {
         // Render two images with and without distortion
         // Create BufferedImages for visualization
         //
-        // The image center has been shifted a bit to make things a little bit more interesting
-        //
         CameraPinholeRadial pinhole =
-                new CameraPinholeRadial(250,250,0,350,480/2,640,480)
+                new CameraPinholeRadial(250,250,0,320,240,640,480)
                         .fsetRadial(-0.05,0.001);
         ConfigChessboard chessboard = new ConfigChessboard(20,20,20);
 
         Se3_F64 markerToCamera = SpecialEuclideanOps_F64.setEulerXYZ(0,0,0,0,0,125,null);
         GrayF32 distorted = GenerateSimulatedMarkers.render(chessboard, markerToCamera, pinhole);
 
-        CameraPinhole pinholeNoRadial = new CameraPinholeRadial(250,250,0,350,480/2,640,480);
+        CameraPinhole pinholeNoRadial = new CameraPinholeRadial(250,250,0,320,240,640,480);
 
         CameraPinhole pinholeModified = new CameraPinhole();
 
@@ -56,12 +56,18 @@ public class Exercise05 {
         ConvertBufferedImage.convertTo(distorted,workDistorted);
         ConvertBufferedImage.convertTo(undistorted,workUndistorted);
 
-        // This point should appear exactly on a corner
-        Point3D_F64 X = new Point3D_F64(20,20,125);
+        // These point should appear exactly on corners. They don't. This simulator hasn't been used for precise
+        // rendering before and there appears to be a scale offset. TODO Fix this issue.
+        // While they don't appear where they should, their location is consistent if the camera model
+        // is correctly applied to both images.
+        List<Point3D_F64> points3D = new ArrayList<>();
+        points3D.add(new Point3D_F64(0,0,125));
+        points3D.add(new Point3D_F64(20,20,125));
+        points3D.add(new Point3D_F64(100,100,125));
+        points3D.add(new Point3D_F64(0,100,125));
 
         // Write code to draw a circle around the projected point in the distorted and undistorted image.
         // If you do this correctly then it should appear at the same location on the grid in both images
-
 
         // TODO Project points
 

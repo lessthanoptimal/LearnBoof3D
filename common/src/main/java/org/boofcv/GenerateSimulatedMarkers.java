@@ -18,7 +18,7 @@ import java.awt.image.BufferedImage;
 public class GenerateSimulatedMarkers {
     public static GrayF32 render(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeRadial intrinsic )
     {
-        double unitToPixels = 2;
+        double unitToPixels = 1;
 
         RenderCalibrationTargetsGraphics2D render = new RenderCalibrationTargetsGraphics2D(20,unitToPixels);
         render.chessboard(config.numRows,config.numCols,config.squareWidth);
