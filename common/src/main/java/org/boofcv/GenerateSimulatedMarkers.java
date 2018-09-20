@@ -5,6 +5,7 @@ import boofcv.gui.RenderCalibrationTargetsGraphics2D;
 import boofcv.io.image.ConvertBufferedImage;
 import boofcv.simulation.SimulatePlanarWorld;
 import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.image.GrayF32;
 import georegression.struct.se.Se3_F64;
 
 import java.awt.image.BufferedImage;
@@ -15,7 +16,7 @@ import java.awt.image.BufferedImage;
  * @author Peter Abeles
  */
 public class GenerateSimulatedMarkers {
-    public static BufferedImage render(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeRadial intrinsic )
+    public static GrayF32 render(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeRadial intrinsic )
     {
         double unitToPixels = 2;
 
@@ -30,10 +31,16 @@ public class GenerateSimulatedMarkers {
 
         simulator.render();
 
-        // TODO remove in the next version of BoofCV. It's a hack around a bug in the calibration app
-        BufferedImage a = ConvertBufferedImage.convertTo(simulator.getOutput(),null,true);
-        BufferedImage b = new BufferedImage(a.getWidth(),a.getHeight(),BufferedImage.TYPE_INT_RGB);
-        b.createGraphics().drawImage(a,0,0,a.getWidth(),a.getHeight(),null);
+        return simulator.getOutput();
+    }
+    public static BufferedImage renderB(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeRadial intrinsic )
+    {
+        GrayF32 gray = render(config, markerToCamera, intrinsic);
+
+        // Force the buffered images to be RGB to get around a bug in the last stable version of BoofCV. The calibration
+        // app assumes buffered image types are RGB
+        BufferedImage b = new BufferedImage(gray.getWidth(),gray.getHeight(),BufferedImage.TYPE_INT_RGB);
+        ConvertBufferedImage.convertTo(gray,b);
         return b;
     }
 }

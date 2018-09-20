@@ -89,7 +89,7 @@ public class Exercise01 {
             System.out.println("Generating " + i);
             String name = String.format("image%02d.png", i);
             UtilImageIO.saveImage(
-                    GenerateSimulatedMarkers.render(chessboard, markerToCameras.get(i), pinhole),
+                    GenerateSimulatedMarkers.renderB(chessboard, markerToCameras.get(i), pinhole),
                     new File(directory, name).getAbsolutePath());
         }
         System.out.println("Done!");

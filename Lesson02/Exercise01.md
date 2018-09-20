@@ -8,7 +8,7 @@ Did you checkout BoofCV's source code? You will need to do so now to complete th
     * Note the camera parameters
     * Read the JavaDoc and understand the scenes its creating
     * Run this exercise
-    8 Look at the images it generated 
+    * Look at the images it generated 
 2) Switch to BoofCV's source code then build and run the applications.jar
     1) cd boofcv
     2) ./gradlew applicationsJar
@@ -22,7 +22,7 @@ Did you checkout BoofCV's source code? You will need to do so now to complete th
 After it process the directory there will be a GUI which let's you view the results. Did it do a good
 job recovering the original parameters? Play with the options on the right. Undistort the image.
 
-A good set of calibration images will have features that uniformally cover the entire image all
+A good set of calibration images will have features that uniformly cover the entire image all
 the way up the the edge. You also want a nice distribution along all 3 axises of different
 orientations. Not too extreme of an angle since the feature detector returns worse results
 when you do that.
@@ -42,3 +42,7 @@ application you just built.
 ```bash
 java -jar applications/applications.jar CameraCalibration
 ```
+
+
+Additional Reading:
+Zhang, Zhengyou. "Flexible camera calibration by viewing a plane from unknown orientations." ICCV 1999
