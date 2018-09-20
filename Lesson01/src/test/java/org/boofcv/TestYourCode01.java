@@ -32,11 +32,13 @@ public class TestYourCode01 {
             Point2D_F64 found = PerspectiveOps.renderPixel(modified,X);
 
             // Check it against the function's contract
-            assertEquals(original.width*scale, modified.width, UtilEjml.TEST_F64);
-            assertEquals(original.height*scale, modified.height, UtilEjml.TEST_F64);
+            assertEquals(original.width*scale, modified.width, 1); // never specified how to round
+            assertEquals(original.height*scale, modified.height,1);
 
-            assertEquals(expected.x/original.width, found.x/modified.width , UtilEjml.TEST_F64);
-            assertEquals(expected.y/original.height, found.y/modified.height , UtilEjml.TEST_F64);
+            // remember that comment about not specifying how to round the width and height?
+            // that really should be defined. I've reduced the test tolerance here because of that
+            assertEquals(expected.x/original.width, found.x/modified.width , 1e-2);
+            assertEquals(expected.y/original.height, found.y/modified.height , 1e-2);
 
             // sanity check to make sure the input wasn't modified
             assertEquals(500,original.fx, UtilEjml.TEST_F64);
@@ -47,7 +49,7 @@ public class TestYourCode01 {
 
             // Note: UtilEjml.TEST_F64 isn't a java thing but a reasonable value for test tolerance when
             //       dealing with 64-bit floats. Instead of copy and pasting it I just use the constant from
-            //       EJML's library.
+            //       EJML's library.  1e-8
         }
     }
 }
