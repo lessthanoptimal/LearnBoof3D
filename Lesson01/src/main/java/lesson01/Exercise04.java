@@ -1,4 +1,4 @@
-package org.boofcv;
+package lesson01;
 
 import boofcv.alg.distort.radtan.LensDistortionRadialTangential;
 import boofcv.alg.geo.WorldToCameraToPixel;

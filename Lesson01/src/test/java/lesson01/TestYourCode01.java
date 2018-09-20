@@ -1,4 +1,4 @@
-package org.boofcv;
+package lesson01;
 
 import boofcv.alg.geo.PerspectiveOps;
 import boofcv.struct.calib.CameraPinhole;

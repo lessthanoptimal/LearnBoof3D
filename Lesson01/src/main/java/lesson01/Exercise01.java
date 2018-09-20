@@ -1,4 +1,4 @@
-package org.boofcv;
+package lesson01;
 
 
 import boofcv.gui.feature.VisualizeFeatures;
