@@ -104,5 +104,6 @@ public class Exercise02 {
         // 3) Make the camera rotating around the points with a fixed radius. There are a bunch of ways to do this
         //    if you wish to combine two rigid body transforms then Se3_F64.concat() could be useful. There might
         //    be easier ways.
+        //    Fixed radius means ||T - (0,0,2)'|| is contant
     }
 }
