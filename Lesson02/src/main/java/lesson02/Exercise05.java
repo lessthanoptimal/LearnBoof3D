@@ -56,15 +56,14 @@ public class Exercise05 {
         ConvertBufferedImage.convertTo(distorted,workDistorted);
         ConvertBufferedImage.convertTo(undistorted,workUndistorted);
 
-        // These point should appear exactly on corners. They don't. This simulator hasn't been used for precise
-        // rendering before and there appears to be a scale offset. TODO Fix this issue.
-        // While they don't appear where they should, their location is consistent if the camera model
-        // is correctly applied to both images.
+        // These point should appear exactly on corners in distorted and undistorted images
+        // if you do everything correctly
         List<Point3D_F64> points3D = new ArrayList<>();
-        points3D.add(new Point3D_F64(0,0,125));
-        points3D.add(new Point3D_F64(20,20,125));
-        points3D.add(new Point3D_F64(100,100,125));
-        points3D.add(new Point3D_F64(0,100,125));
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                points3D.add(new Point3D_F64((i-5)*40,(j-5)*40,125));
+            }
+        }
 
         // Write code to draw a circle around the projected point in the distorted and undistorted image.
         // If you do this correctly then it should appear at the same location on the grid in both images

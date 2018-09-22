@@ -19,15 +19,18 @@ public class GenerateSimulatedMarkers {
     public static GrayF32 render(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeRadial intrinsic )
     {
         double unitToPixels = 1;
+        int padding = 20;
 
-        RenderCalibrationTargetsGraphics2D render = new RenderCalibrationTargetsGraphics2D(20,unitToPixels);
+        RenderCalibrationTargetsGraphics2D render = new RenderCalibrationTargetsGraphics2D(padding,unitToPixels);
         render.chessboard(config.numRows,config.numCols,config.squareWidth);
 
-        double width=config.numCols*config.squareWidth;
+        GrayF32 rendered = render.getGrayF32();
+
+        double widthWorld=config.numCols*config.squareWidth*(rendered.width/(double)(rendered.width-padding*2));
 
         SimulatePlanarWorld simulator = new SimulatePlanarWorld();
         simulator.setCamera(intrinsic);
-        simulator.addTarget(markerToCamera,width,render.getGrayF32());
+        simulator.addTarget(markerToCamera,widthWorld,rendered);
 
         simulator.render();
 
