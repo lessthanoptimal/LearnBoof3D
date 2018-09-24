@@ -52,7 +52,7 @@ public class Exercise05 {
         BufferedImage buffered = new BufferedImage(pinhole.width,pinhole.height,BufferedImage.TYPE_INT_RGB);
         ImagePanel gui = ShowImages.showWindow(buffered,"Fiducial Sequence",true);
 
-        for (int frame = 0; frame < 100; frame++) {
+        for (int frame = 0; frame < 105; frame++) {
             System.out.println("------------------ Frame="+frame);
 
             GrayF32 image = BoilderPlate03.renderViewInSequence(markerLength,pinhole,frame);

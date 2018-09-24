@@ -140,9 +140,9 @@ public class BoilderPlate03 {
 
     public static GrayF32 renderViewInSequence( double markerLength , CameraPinholeRadial pinhole , int frame )
     {
-        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.5,Math.PI+0.3,0,-0.3,0,0.05,null);
-        Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXYZ(0,Math.PI,0.3,0.3,0,0.0,null);
-        Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.1,Math.PI,0.0,1.0,0,0.22,null);
+        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.3,Math.PI-0.3,0,-0.3,0,0.05,null);
+        Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXYZ(0,Math.PI,0.3,0.5,0,0,null);
+        Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.1,Math.PI,0.0,1.1,0,0.25,null);
 
         // The white border that was added to the marker needs to be taken in account
         double wb = 1.2;
@@ -165,7 +165,7 @@ public class BoilderPlate03 {
         Se3_F64 world_to_a = SpecialEuclideanOps_F64.eulerXYZ(0,frame*0.005,0.15*Math.cos(frame*0.1),
                 0,0,0,null);
         // move away from origin
-        Se3_F64 a_to_b = SpecialEuclideanOps_F64.eulerXYZ(0,0,0,-0.01*frame,0,0.4+0.002*frame,null);
+        Se3_F64 a_to_b = SpecialEuclideanOps_F64.eulerXYZ(0,0,0,0.05 + -0.012*frame,0,0.4+0.002*frame,null);
 
         return world_to_a.concat(a_to_b,null);
     }
