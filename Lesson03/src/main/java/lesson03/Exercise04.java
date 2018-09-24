@@ -4,6 +4,8 @@ import boofcv.abst.fiducial.SquareImage_to_FiducialDetector;
 import boofcv.alg.distort.radtan.LensDistortionRadialTangential;
 import boofcv.factory.fiducial.ConfigFiducialImage;
 import boofcv.factory.fiducial.FactoryFiducial;
+import boofcv.gui.image.ShowImages;
+import boofcv.io.image.ConvertBufferedImage;
 import boofcv.struct.calib.CameraPinholeRadial;
 import boofcv.struct.image.GrayF32;
 import georegression.struct.point.Point2D_F64;
@@ -51,6 +53,7 @@ public class Exercise04 {
         // that makes this problem more realistic
 
         GrayF32 image = renderTwoMarkers(markerLength, pinhole);
+        ShowImages.showWindow(ConvertBufferedImage.convertTo(image,null),"Two Fiducials",true);
 
         //------------------------------------------------------------------
         // Detect the fiducials in the image

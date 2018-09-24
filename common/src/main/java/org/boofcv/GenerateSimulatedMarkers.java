@@ -2,7 +2,6 @@ package org.boofcv;
 
 import boofcv.abst.distort.FDistort;
 import boofcv.abst.fiducial.calib.ConfigChessboard;
-import boofcv.alg.misc.GImageMiscOps;
 import boofcv.gui.RenderCalibrationTargetsGraphics2D;
 import boofcv.io.image.ConvertBufferedImage;
 import boofcv.io.image.UtilImageIO;
@@ -33,11 +32,6 @@ public class GenerateSimulatedMarkers {
         GrayF32 marker = new GrayF32(pixelWide,pixelWide);
         GrayF32 fullPattern = loadImage(image);
 
-        // there is a mandatory white border of 0.1 along the outside
-
-        // width of white border
-        int wb = (int)(pixelWide*0.1);
-        pixelWide -= 2*wb;
         // width of inner pattern
         int w = (int)(pixelWide*(1.0-2*border));
         // what's left is the black border
@@ -46,12 +40,10 @@ public class GenerateSimulatedMarkers {
 
         new FDistort(fullPattern,small).scale().apply();
 
-        // render white outside border
-        GImageMiscOps.fillBorder(marker,255,wb);
         // the outside black border is there already
 
         // draw the image
-        marker.subimage(b+wb,b+wb,b+wb+w,b+wb+w).setTo(small);
+        marker.subimage(b,b,b+w,b+w).setTo(small);
 
         return marker;
     }

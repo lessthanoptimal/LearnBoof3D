@@ -124,12 +124,13 @@ public class BoilderPlate03 {
     public static GrayF32 renderTwoMarkers(double markerLength, CameraPinholeRadial pinhole) {
         Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.5,Math.PI,0,-0.2,0,0.2,null);
         Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXYZ(0,Math.PI,0.3,0.3,0,0.25,null);
+
         // The white border that was added to the marker needs to be taken in account
-        double wb = 1.2;
         SimulatePlanarWorld sim = new SimulatePlanarWorld();
         sim.setCamera(pinhole);
-        sim.addSurface(a_to_world,wb*markerLength,renderSquare("dog",0.25,200));
-        sim.addSurface(b_to_world,wb*markerLength,renderSquare("h2o",0.25,200));
+        sim.addSurface(a_to_world,markerLength,renderSquare("dog",0.25,200));
+        sim.addSurface(b_to_world,markerLength,renderSquare("h2o",0.25,200));
+        sim.setBackground(125);
 
         Se3_F64 world_to_Camera = SpecialEuclideanOps_F64.eulerXYZ(0.1,-0.05,0.2,0,0,0.1,null);
         sim.setWorldToCamera(world_to_Camera);
@@ -142,15 +143,15 @@ public class BoilderPlate03 {
     {
         Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.3,Math.PI-0.3,0,-0.3,0,0.05,null);
         Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXYZ(0,Math.PI,0.3,0.5,0,0,null);
-        Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.1,Math.PI,0.0,1.1,0,0.25,null);
+        Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.1,Math.PI,0.0,1.1,0,0.28,null);
 
         // The white border that was added to the marker needs to be taken in account
-        double wb = 1.2;
         SimulatePlanarWorld sim = new SimulatePlanarWorld();
         sim.setCamera(pinhole);
-        sim.addSurface(a_to_world,wb*markerLength,renderSquare("dog",0.25,200));
-        sim.addSurface(b_to_world,wb*markerLength,renderSquare("h2o",0.25,200));
-        sim.addSurface(c_to_world,wb*markerLength,renderSquare("ke",0.25,200));
+        sim.addSurface(a_to_world,markerLength,renderSquare("dog",0.25,200));
+        sim.addSurface(b_to_world,markerLength,renderSquare("h2o",0.25,200));
+        sim.addSurface(c_to_world,markerLength,renderSquare("ke",0.25,200));
+        sim.setBackground(125);
 
         Se3_F64 world_to_camera = computeWorldToCamera(frame);
 

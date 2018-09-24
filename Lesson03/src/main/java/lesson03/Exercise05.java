@@ -4,6 +4,7 @@ import boofcv.abst.fiducial.SquareImage_to_FiducialDetector;
 import boofcv.alg.distort.radtan.LensDistortionRadialTangential;
 import boofcv.factory.fiducial.ConfigFiducialImage;
 import boofcv.factory.fiducial.FactoryFiducial;
+import boofcv.gui.fiducial.VisualizeFiducial;
 import boofcv.gui.image.ImagePanel;
 import boofcv.gui.image.ShowImages;
 import boofcv.io.image.ConvertBufferedImage;
@@ -12,6 +13,7 @@ import boofcv.struct.calib.CameraPinholeRadial;
 import boofcv.struct.image.GrayF32;
 import georegression.struct.se.Se3_F64;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import static lesson03.BoilderPlate03.checkSolution;
@@ -81,7 +83,17 @@ public class Exercise05 {
             // message to standard out
             checkSolution(camera0_to_frameN, frame);
 
+            // Draw some visuals on top of the image. This should build confidence that the detector is correctly
+            // estimating the transforms.
             ConvertBufferedImage.convertTo(image,buffered,true);
+            Graphics2D g2 = buffered.createGraphics();
+            for (int i = 0; i < detector.totalFound(); i++) {
+                Se3_F64 fiducialToCamera = new Se3_F64();
+                detector.getFiducialToCamera(i,fiducialToCamera);
+                VisualizeFiducial.drawLabelCenter(fiducialToCamera,pinhole,""+detector.getId(i),g2);
+                VisualizeFiducial.drawCube(fiducialToCamera,pinhole,markerLength,5,g2);
+                System.out.print(" "+detector.getId(i));
+            }
             gui.repaint();
             BoofMiscOps.sleep(50);
         }
