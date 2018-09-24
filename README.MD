@@ -6,6 +6,14 @@ Reading Material:
 1) [Multview Geometry in Computer Vision 2nd](http://www.robots.ox.ac.uk/~vgg/hzbook/)
 2) [Stanford CS231A Fall 2014](http://cvgl.stanford.edu/teaching/cs231a_winter1415/schedule.html)
 
+# Overview
+
+1) **Lesson 1:** Image Formation Pinhole camera
+2) **Lesson 2:** Camera Calibration and Removing Lens Distortion
+3) **Lesson 3:** Pose Estimation using PNP and Fiducials/Markers
+
+# Getting Started
+
 All the code here will run without modification on Linux, Windows and Mac OS X. 
 [IntelliJ](https://www.jetbrains.com/idea/) is the preferred IDE and everything will load and run just fine
 inside of it.
