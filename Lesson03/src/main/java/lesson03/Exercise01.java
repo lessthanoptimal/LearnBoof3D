@@ -72,7 +72,7 @@ public class Exercise01 {
         // Exercise:
         // 1) Figure out what went wrong by reading documentation.
         //
-        // When dealing with pose estimation always know what the solution is. It's completely arbitrary!
+        // When dealing with pose estimation look up what "direction" the solution is. It's completely arbitrary!
         // Is it from marker-to-camera or camera-to-marker? This is specified in the JavaDoc of Estimate1ofPnP.
         // If you find a situation where this information is not specified (no matter the library) submit
         // a patch or report it to the maintainers.

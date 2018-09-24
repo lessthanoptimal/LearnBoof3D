@@ -77,7 +77,6 @@ public class Exercise04 {
         detector.getFiducialToCamera(indexA,a_to_camera);
         detector.getFiducialToCamera(indexB,b_to_camera);
 
-
         // TODO Compute the transform from A's reference frame to B's reference frame.
         // HINT: Use concat() and invert() function in Se3
         Se3_F64 a_to_b = new Se3_F64();

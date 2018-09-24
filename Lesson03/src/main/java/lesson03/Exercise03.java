@@ -40,7 +40,7 @@ public class Exercise03 {
         CameraPinholeRadial pinhole =  new CameraPinholeRadial(250,250,0,320,240,640,480)
                         .fsetRadial(-0.05,0.001);
 
-        // Chessboard configuration. TODO modify so that there will be create unique solution
+        // Chessboard configuration. TODO modify so that there will be a unique solution
         ConfigChessboard chessboard = new ConfigChessboard(5,7,20);
 
         // Render and display the simulation
@@ -54,7 +54,7 @@ public class Exercise03 {
         // Now we will detect the chessboard using a built in detector
         CalibrationDetectorChessboard detector = FactoryFiducialCalibration.chessboard(chessboard);
 
-        // for PNP to work we need to have points in the marker reference frame in the correct order or else
+        // for PNP to work we need to have points in the marker reference frame and in the correct order or else
         // it won't work correctly. Fortunately this detector provides that information
         List<Point2D3D> landmarks = new ArrayList<>();
         for( Point2D_F64 p : detector.getLayout() ) {
@@ -103,7 +103,7 @@ public class Exercise03 {
         //    there are multiple possible solutions. When calibrating your camera this doesn't actually matter! However,
         //    if you're trying to localize the cameras position you better be using a marker with a unique solution.
         //
-        // 2) You got it to work just once prove that it will work in all situations.
+        // 2) You've succeeded in getting it to work in one situation. It could still be wrong in others.
         //    Test your solution by creating a unit test.  Rotate the marker around 360 degrees on the z-axis
         //    every 15 degrees. Why is this a good test?
     }
