@@ -33,10 +33,7 @@ public class Exercise04 {
         // We will begin as usual by generating a point cloud and defining our camera model
         // let's start by creating a random point cloud in front of the camera
         Random rand = new Random(234);
-        List<Point3D_F64> cloud = UtilPoint3D_F64.random(-1,1,400,rand);
-        for( Point3D_F64 p : cloud ) { // TODO Update on next release into 1 line of code
-            p.z += 1.25;
-        }
+        List<Point3D_F64> cloud = UtilPoint3D_F64.random(new Point3D_F64(0,0,1.25),-1,1,400,rand);
 
         // Specify the camera model for our synthetic camera
         CameraPinholeRadial intrinsic = new CameraPinholeRadial()

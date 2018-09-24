@@ -22,10 +22,7 @@ public class Exercise01 {
         Random rand = new Random(234);
 
         // let's start by creating a random point cloud in front of the camera
-        List<Point3D_F64> cloud = UtilPoint3D_F64.random(-1,1,100,rand);
-        for( Point3D_F64 p : cloud ) { // TODO Update on next release into 1 line of code
-            p.z += CLOUD_DEPTH;
-        }
+        List<Point3D_F64> cloud = UtilPoint3D_F64.random(new Point3D_F64(0,0,CLOUD_DEPTH),-1,1,100,rand);
 
         // This defines our pinhole camera
         CameraPinhole intrinsic = new CameraPinhole(250,250,0,300,300,600,600);

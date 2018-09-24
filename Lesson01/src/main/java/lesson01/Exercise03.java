@@ -25,10 +25,7 @@ public class Exercise03 {
         Random rand = new Random(234);
 
         // let's start by creating a random point cloud in front of the camera
-        List<Point3D_F64> cloud = UtilPoint3D_F64.random(-1,1,400,rand);
-        for( Point3D_F64 p : cloud ) { // TODO Update on next release into 1 line of code
-            p.z += 1.25;
-        }
+        List<Point3D_F64> cloud = UtilPoint3D_F64.random(new Point3D_F64(0,0,1.25),-1,1,400,rand);
 
         // Specify the camera model for our synthetic camera
         CameraPinholeRadial intrinsic = new CameraPinholeRadial()
@@ -38,7 +35,7 @@ public class Exercise03 {
                 .fsetRadial(0.1,0.05);
 
         // Create camera calibration matrix
-        DMatrixRMaj K = PerspectiveOps.calibrationMatrix(intrinsic,(DMatrixRMaj)null);
+        DMatrixRMaj K = PerspectiveOps.pinholeToMatrix(intrinsic,(DMatrixRMaj)null);
 
         // Real cameras have lens distortion which ruin our nice simple (and linear) pinhole camera
         // model. There are a lot of models for lens distortion. Here we will just examine radial distortion

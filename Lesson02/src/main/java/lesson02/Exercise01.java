@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.PI;
+
 /**
  * We will created simulated chessboard targets using a very very simple ray tracer. This way we will know
  * what the camera parameters are and can compare it against what was estimated. All the images will appear
@@ -35,16 +37,16 @@ public class Exercise01 {
 
         List<Se3_F64> markerToCameras = new ArrayList<>();
 
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.1,0,0.1,0,0,120,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.2,0,0.1,50,0,120,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.0,-0.3,0.0,0,50,120,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(-0.3,-0.2,0.0,-80,0,110,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.1,-0.1,0.0,0,-80,130,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.1,0,0.4,-50,50,104,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.1,0.2,0.2,-80,50,120,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.1,0,0.3,70,30,100,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.2,0.2,0.2,50,-50,125,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0.2,-0.2,0.2,-80,-60,125,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.1, PI,0.1,0,0,120,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.2,PI,0.1,50,0,120,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.0,PI-0.3,0.0,0,50,120,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(-0.3,PI-0.2,0.0,-80,0,110,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.1,PI-0.1,0.0,0,-80,130,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.1,PI,0.4,-50,50,104,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.1,PI+0.2,0.2,-80,50,120,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.1,PI,0.3,70,30,100,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.2,PI+0.2,0.2,50,-50,125,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0.2,PI+-0.2,0.2,-80,-60,125,null));
 
         File directory = new File("calibration/good");
         generate(pinhole, chessboard, markerToCameras, directory);
@@ -66,7 +68,7 @@ public class Exercise01 {
             double y = -80 + row*80;
             for (int col = 0; col < 3; col++) {
                 double x = -100 + col*100;
-                markerToCameras.add(SpecialEuclideanOps_F64.setEulerXYZ(0,0,0,x,y,120,null));
+                markerToCameras.add(SpecialEuclideanOps_F64.eulerXYZ(0,PI,0,x,y,120,null));
             }
         }
 

@@ -27,7 +27,7 @@ subprojects {
             compile('org.openjdk.jmh:jmh-'+a+':1.19')
         }
         ['core','swing','simulation'].each { String a->
-            compile('org.boofcv:boofcv-'+a+':0.30')
+            compile('org.boofcv:boofcv-'+a+':0.31-SNAPSHOT')
         }
 
         compile 'com.google.code.findbugs:jsr305:3.0.2' // @Nullable
