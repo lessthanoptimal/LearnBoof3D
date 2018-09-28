@@ -45,6 +45,17 @@ public class GenerateSimulatedMarkers {
         // draw the image
         marker.subimage(b,b,b+w,b+w).setTo(small);
 
+
+        // adjust the image so that it's not perfectly black and white
+        for (int i = 0; i < marker.data.length; i++) {
+            float v = marker.data[i];
+            if (v == 0)
+                marker.data[i] = 80;
+            else if (v == 255)
+                marker.data[i] = 180;
+        }
+
+
         return marker;
     }
 

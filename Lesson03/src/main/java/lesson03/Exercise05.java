@@ -92,7 +92,6 @@ public class Exercise05 {
                 detector.getFiducialToCamera(i,fiducialToCamera);
                 VisualizeFiducial.drawLabelCenter(fiducialToCamera,pinhole,""+detector.getId(i),g2);
                 VisualizeFiducial.drawCube(fiducialToCamera,pinhole,markerLength,5,g2);
-                System.out.print(" "+detector.getId(i));
             }
             gui.repaint();
             BoofMiscOps.sleep(50);
