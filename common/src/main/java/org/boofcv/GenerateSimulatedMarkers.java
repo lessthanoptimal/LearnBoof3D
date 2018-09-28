@@ -2,6 +2,7 @@ package org.boofcv;
 
 import boofcv.abst.distort.FDistort;
 import boofcv.abst.fiducial.calib.ConfigChessboard;
+import boofcv.alg.misc.ImageMiscOps;
 import boofcv.gui.RenderCalibrationTargetsGraphics2D;
 import boofcv.io.image.ConvertBufferedImage;
 import boofcv.io.image.UtilImageIO;
@@ -28,6 +29,17 @@ public class GenerateSimulatedMarkers {
         return gray;
     }
 
+    public static GrayF32 loadPattern(String name ) {
+        GrayF32 gray = loadImage(name);
+
+        // make sure the pattern lines up with the assumed coordinate system.
+        // I'll admit that I resorted to guess and check here
+        ImageMiscOps.rotateCCW(gray);
+        ImageMiscOps.rotateCCW(gray);
+
+        return gray;
+    }
+
     public static GrayF32 renderSquare( String image , double border , int pixelWide ) {
         GrayF32 marker = new GrayF32(pixelWide,pixelWide);
         GrayF32 fullPattern = loadImage(image);
@@ -44,7 +56,6 @@ public class GenerateSimulatedMarkers {
 
         // draw the image
         marker.subimage(b,b,b+w,b+w).setTo(small);
-
 
         // adjust the image so that it's not perfectly black and white
         for (int i = 0; i < marker.data.length; i++) {

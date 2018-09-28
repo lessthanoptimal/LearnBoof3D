@@ -13,7 +13,7 @@ import georegression.struct.point.Point3D_F64;
 import georegression.struct.se.Se3_F64;
 
 import static lesson03.BoilderPlate03.renderTwoMarkers;
-import static org.boofcv.GenerateSimulatedMarkers.loadImage;
+import static org.boofcv.GenerateSimulatedMarkers.loadPattern;
 
 /**
  * Given a view with two markers in it, determine the transform from one marker to another.
@@ -43,8 +43,8 @@ public class Exercise04 {
 
         detector.setLensDistortion(distortion,pinhole.width,pinhole.height);
 
-        detector.addPatternImage(loadImage("dog"),125, markerLength);
-        detector.addPatternImage(loadImage("h2o"),125, markerLength);
+        detector.addPatternImage(loadPattern("dog"),125, markerLength);
+        detector.addPatternImage(loadPattern("h2o"),125, markerLength);
 
         //-----------------------------------------------------------------
         // Create a simulated scene.

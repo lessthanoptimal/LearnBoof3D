@@ -19,7 +19,7 @@ import org.boofcv.AddImageNoise;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import static org.boofcv.GenerateSimulatedMarkers.loadImage;
+import static org.boofcv.GenerateSimulatedMarkers.loadPattern;
 import static org.boofcv.GenerateSimulatedMarkers.renderSquare;
 
 /**
@@ -50,14 +50,14 @@ public class Exercise06 {
 
         detector.setLensDistortion(distortion,pinhole.width,pinhole.height);
 
-        detector.addPatternImage(loadImage("dog"),125, markerLength);
-        detector.addPatternImage(loadImage("h2o"),125, markerLength);
-        detector.addPatternImage(loadImage("ke"),125, markerLength);
+        detector.addPatternImage(loadPattern("dog"),125, markerLength);
+        detector.addPatternImage(loadPattern("h2o"),125, markerLength);
+        detector.addPatternImage(loadPattern("ke"),125, markerLength);
 
         //-------------------------------------------------------------
         // Create the simulated environment
 
-        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.15,Math.PI,0,0.02,0,0,null);
+        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.15,Math.PI,0,0,0,0,null);
         Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.15,Math.PI+0.5,0.02,-0.3,0,0,null);
         Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.15,Math.PI-0.5,0.02,0.3,0,0,null);
 
@@ -78,8 +78,8 @@ public class Exercise06 {
         for (int frame = 0; frame < 250; frame++) {
             double distance = 0.4 + frame*0.005;
 
-            Se3_F64 world_to_Camera = SpecialEuclideanOps_F64.eulerXYZ(0,0,0,0,0,distance,null);
-            sim.setWorldToCamera(world_to_Camera);
+            Se3_F64 world_to_camera = SpecialEuclideanOps_F64.eulerXYZ(0,0,0,0,0,distance,null);
+            sim.setWorldToCamera(world_to_camera);
             sim.render();
             GrayF32 image = sim.getOutput();
 
@@ -94,8 +94,14 @@ public class Exercise06 {
             //      use the largest of the two. Used the method in exercise03
             // TODO determine if all 3 markers were detected once and only once.
             //      don't worry if it was matched to the correct object on the screen
+            // TODO compute a summary error statistic. Total number of markers with an error larger than 5 degrees
+            //                                         where a no-detection is considered an error
+            // TODO print out the error metrics you just computed for each frame in the sequence and the summary
+            //      error statistic at the end
 
-            // TODO print out the error metrics you just computed for each frame in the sequence
+
+            // TODO example of print statement for error in each frame
+//            System.out.printf("%3d  err0=%4.1f err1=%4.1f err2=%4.1f  only_once=%5s\n",frame,error0,error1,error2,once);
 
             // Visualize by rendering cubes. Notice how the center cube jumps around a bit when at a distance?
             // This is less than
@@ -110,6 +116,9 @@ public class Exercise06 {
             gui.repaint();
             BoofMiscOps.sleep(50);
         }
+
+        // TODO example of summary error
+//        System.out.println("Summary: total_more_than_5 "+totalMoreThan5);
     }
 
     // Exercises
@@ -117,7 +126,9 @@ public class Exercise06 {
     // 2) Plot angle error for each marker as a function of distance
     // 3) Is there a nice clean point where performance breaks down?
     // 4) Can you explain the difference between the center fiducial and the two on the side?
-    // 5) Uncomment line 49. This removes a refinement step when fitting the polygon. How much worse is the performance?
+    // 5) Uncomment line 49. This removes a refinement step when fitting the polygon.
+    //    How much worse is the performance?
+    //    In real world environments the difference is more dramatic.
 
 
     // Comment: The amount of orientation jitter in this example is less than you see typically in real images.
