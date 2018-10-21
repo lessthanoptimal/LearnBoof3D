@@ -27,7 +27,7 @@ import static java.lang.Math.PI;
  * Let's see if you understand everything we just worked on. You will render a 3D point onto the image
  * and see if it appears at the correct location.
  */
-public class Exercise05 {
+public class Exercise05_Projecting {
     public static void main(String[] args) {
 
         //--------- Set Up
@@ -39,7 +39,7 @@ public class Exercise05 {
                         .fsetRadial(-0.05,0.001);
         ConfigChessboard chessboard = new ConfigChessboard(20,20,20);
 
-        Se3_F64 markerToCamera = SpecialEuclideanOps_F64.eulerXYZ(0,PI,0,0,0,125,null);
+        Se3_F64 markerToCamera = SpecialEuclideanOps_F64.eulerXyz(0,0,125,0,PI,0,null);
         GrayF32 distorted = GenerateSimulatedMarkers.render(chessboard, markerToCamera, pinhole);
 
         CameraPinhole pinholeNoRadial = new CameraPinholeRadial(250,250,0,320,240,640,480);

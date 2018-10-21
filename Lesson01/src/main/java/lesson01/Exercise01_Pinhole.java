@@ -15,7 +15,7 @@ import java.util.Random;
 /**
  * Understanding the pinhole camera model by rending a point cloud.
  */
-public class Exercise01 {
+public class Exercise01_Pinhole {
     public static final double CLOUD_DEPTH = 2;
 
     public static void main(String[] args) {

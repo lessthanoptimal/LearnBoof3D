@@ -24,7 +24,7 @@ import java.util.Random;
  *
  * @author Peter Abeles
  */
-public class Exercise04 {
+public class Exercise04_LibraryTools {
     public static void main(String[] args) {
         // Until now exercises have been more examples rather than exercises. In this actual exercise you will
         // create your own code that uses build in BoofCV functions to render the scene with a moving

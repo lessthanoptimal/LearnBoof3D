@@ -33,7 +33,7 @@ import static java.lang.Math.PI;
  *
  * @author Peter Abeles
  */
-public class Exercise03 {
+public class Exercise03_YourTurnPnP {
     public static void main(String[] args) {
 
         // Camera model with lens distortion to make it more realistic
@@ -44,7 +44,7 @@ public class Exercise03 {
         ConfigChessboard chessboard = new ConfigChessboard(5,7,20);
 
         // Render and display the simulation
-        Se3_F64 truthMarkerToCamera = SpecialEuclideanOps_F64.eulerXYZ(0.1, PI,-1.4,0,0,120,null);
+        Se3_F64 truthMarkerToCamera = SpecialEuclideanOps_F64.eulerXyz(0,0,120,0.1, PI,-1.4,null);
         GrayF32 distorted = GenerateSimulatedMarkers.render(chessboard, truthMarkerToCamera, pinhole);
         ShowImages.showWindow(ConvertBufferedImage.convertTo(distorted,null),"PNP + Chessboard",true);
 

@@ -29,7 +29,7 @@ import static org.boofcv.GenerateSimulatedMarkers.renderSquare;
  *
  * @author Peter Abeles
  */
-public class Exercise06 {
+public class Exercise06_Distant {
     public static void main(String[] args) {
         //-------------------------------------------------------------
         // Define the camera model
@@ -57,9 +57,9 @@ public class Exercise06 {
         //-------------------------------------------------------------
         // Create the simulated environment
 
-        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.15,Math.PI,0,0,0,0,null);
-        Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.15,Math.PI+0.5,0.02,-0.3,0,0,null);
-        Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.15,Math.PI-0.5,0.02,0.3,0,0,null);
+        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXyz(0,0,0,0.15,Math.PI,0,null);
+        Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXyz(-0.3,0,0,0.15,Math.PI+0.5,0.02,null);
+        Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXyz(0.3,0,0,0.02,0.15,Math.PI-0.5,null);
 
         SimulatePlanarWorld sim = new SimulatePlanarWorld();
         sim.setCamera(pinhole);
@@ -78,7 +78,7 @@ public class Exercise06 {
         for (int frame = 0; frame < 250; frame++) {
             double distance = 0.4 + frame*0.005;
 
-            Se3_F64 world_to_camera = SpecialEuclideanOps_F64.eulerXYZ(0,0,0,0,0,distance,null);
+            Se3_F64 world_to_camera = SpecialEuclideanOps_F64.eulerXyz(0,0,distance,0,0,0,null);
             sim.setWorldToCamera(world_to_camera);
             sim.render();
             GrayF32 image = sim.getOutput();

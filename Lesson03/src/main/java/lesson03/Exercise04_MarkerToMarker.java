@@ -20,7 +20,7 @@ import static org.boofcv.GenerateSimulatedMarkers.loadPattern;
  *
  * @author Peter Abeles
  */
-public class Exercise04 {
+public class Exercise04_MarkerToMarker {
     public static void main(String[] args) {
         double markerLength = 0.2;
 

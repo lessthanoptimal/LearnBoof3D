@@ -19,14 +19,14 @@ import static org.boofcv.EvaluatePerformance.averagePixelError;
  *
  * @author Peter Abeles
  */
-public class Exercise02 {
+public class Exercise02_PnP {
     public static void main(String[] args) {
         //---------------- CREATE OBSERVATIONS --------------------
         // Select a set of four arbitrary 3D points that can be seen in front of the camera
         // Project those points onto the image
 
         CameraPinhole intrinsic = new CameraPinhole(250,250,0,300,300,600,600);
-        Se3_F64 markerToCamera = SpecialEuclideanOps_F64.eulerXYZ(0,Math.PI,0.2,0.1,0,1.2,null);
+        Se3_F64 markerToCamera = SpecialEuclideanOps_F64.eulerXyz(0.1,0,1.2,0,Math.PI,0.2,null);
 
 
         List<Point2D3D> landmarks = new ArrayList<>();

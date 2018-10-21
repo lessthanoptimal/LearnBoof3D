@@ -122,8 +122,8 @@ public class BoilderPlate03 {
      * Hey I intentionally put the code here so that you wouldn't look and cheat!
      */
     public static GrayF32 renderTwoMarkers(double markerLength, CameraPinholeRadial pinhole) {
-        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.5,Math.PI,0,-0.2,0,0.2,null);
-        Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXYZ(0,Math.PI,0.3,0.3,0,0.25,null);
+        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXyz(-0.2,0,0.2,0.5,Math.PI,0,null);
+        Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXyz(0.3,0,0.25,0,Math.PI,0.3,null);
 
         SimulatePlanarWorld sim = new SimulatePlanarWorld();
         sim.setCamera(pinhole);
@@ -131,7 +131,7 @@ public class BoilderPlate03 {
         sim.addSurface(b_to_world,markerLength,renderSquare("h2o",0.25,200));
         sim.setBackground(150);
 
-        Se3_F64 world_to_Camera = SpecialEuclideanOps_F64.eulerXYZ(0.1,-0.05,0.2,0,0,0.1,null);
+        Se3_F64 world_to_Camera = SpecialEuclideanOps_F64.eulerXyz(0,0,0.1,0.1,-0.05,0.2,null);
         sim.setWorldToCamera(world_to_Camera);
 
         sim.render();
@@ -140,9 +140,9 @@ public class BoilderPlate03 {
 
     public static GrayF32 renderViewInSequence( double markerLength , CameraPinholeRadial pinhole , int frame )
     {
-        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.3,Math.PI-0.3,0,-0.3,0,0.05,null);
-        Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXYZ(0,Math.PI,0.3,0.5,0,0,null);
-        Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXYZ(0.1,Math.PI,0.0,1.1,0,0.28,null);
+        Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXyz(-0.3,0,0.05,0.3,Math.PI-0.3,0,null);
+        Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXyz(0.5,0,0,0,Math.PI,0.3,null);
+        Se3_F64 c_to_world = SpecialEuclideanOps_F64.eulerXyz(1.1,0,0.28,0.1,Math.PI,0.0,null);
 
         SimulatePlanarWorld sim = new SimulatePlanarWorld();
         sim.setCamera(pinhole);
@@ -161,10 +161,9 @@ public class BoilderPlate03 {
 
     private static Se3_F64 computeWorldToCamera(int frame) {
         // move around the world's center
-        Se3_F64 world_to_a = SpecialEuclideanOps_F64.eulerXYZ(0,frame*0.005,0.15*Math.cos(frame*0.1),
-                0,0,0,null);
+        Se3_F64 world_to_a = SpecialEuclideanOps_F64.eulerXyz(0,0,0,0,frame*0.005,0.15*Math.cos(frame*0.1),null);
         // move away from origin
-        Se3_F64 a_to_b = SpecialEuclideanOps_F64.eulerXYZ(0,0,0,0.05 + -0.012*frame,0,0.4+0.002*frame,null);
+        Se3_F64 a_to_b = SpecialEuclideanOps_F64.eulerXyz(0.05 + -0.012*frame,0,0.4+0.002*frame,0,0,0,null);
 
         return world_to_a.concat(a_to_b,null);
     }

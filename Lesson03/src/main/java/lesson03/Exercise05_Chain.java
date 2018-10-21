@@ -26,7 +26,7 @@ import static org.boofcv.GenerateSimulatedMarkers.loadPattern;
  *
  * @author Peter Abeles
  */
-public class Exercise05 {
+public class Exercise05_Chain {
     public static void main(String[] args) {
 
         //-------------------------------------------------------------

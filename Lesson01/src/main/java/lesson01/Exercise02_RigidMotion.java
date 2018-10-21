@@ -25,7 +25,7 @@ import java.util.Random;
  *
  * @author Peter Abeles
  */
-public class Exercise02 {
+public class Exercise02_RigidMotion {
     public static void main(String[] args) {
         Random rand = new Random(234);
 

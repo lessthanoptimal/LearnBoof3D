@@ -1,7 +1,7 @@
 # 3D Pose Estimation with Known Markers
 
 BoofCV Demonstrations
-* https://www.youtube.com/watch?v=qJWDK_FrgHE&feature=youtu.be
+* https://www.youtube.com/watch?v=qJWDK_FrgHE
 * FiducialTrackerDemoApp
 
 BoofCV Examples

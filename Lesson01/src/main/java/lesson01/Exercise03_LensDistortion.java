@@ -20,7 +20,7 @@ import java.util.Random;
  *
  * @author Peter Abeles
  */
-public class Exercise03 {
+public class Exercise03_LensDistortion {
     public static void main(String[] args) {
         Random rand = new Random(234);
 

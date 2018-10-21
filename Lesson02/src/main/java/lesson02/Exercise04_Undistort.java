@@ -20,14 +20,14 @@ import static java.lang.Math.PI;
 /**
  * Undistorting images. The easy way.
  */
-public class Exercise04 {
+public class Exercise04_Undistort {
     public static void main(String[] args) {
         CameraPinholeRadial pinhole =
                 new CameraPinholeRadial(250,250,0,640/2,480/2,640,480)
                         .fsetRadial(-0.05,0.001);
         ConfigChessboard chessboard = new ConfigChessboard(20,20,20);
 
-        Se3_F64 markerToCamera = SpecialEuclideanOps_F64.eulerXYZ(0,PI,0,0,0,125,null);
+        Se3_F64 markerToCamera = SpecialEuclideanOps_F64.eulerXyz(0,0,125,0,PI,0,null);
         GrayF32 distorted = GenerateSimulatedMarkers.render(chessboard, markerToCamera, pinhole);
 
         // Same camera parameters but without lens distortion
