@@ -23,7 +23,7 @@ BoofCV contains several solutions [1,2,3] to these different PNP problems.
 
 
 Required Reading
-
+* Multiview Book:
 
 
 Algorithms Implemented in BoofCV
