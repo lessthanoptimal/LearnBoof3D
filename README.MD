@@ -2,15 +2,12 @@ Welcome to the BoofCV 3D computer vision tutorial. This will step you through se
 very simple and build up in complexity. Each lession state required reading will assume that you have read through 
 the reading list and are familiar with the math. 
 
-Reading Material:
-1) [Multview Geometry in Computer Vision 2nd](http://www.robots.ox.ac.uk/~vgg/hzbook/)
-2) [Stanford CS231A Fall 2014](http://cvgl.stanford.edu/teaching/cs231a_winter1415/schedule.html)
-
 # Overview
 
 1) **Lesson 1:** Image Formation Pinhole camera
 2) **Lesson 2:** Camera Calibration and Removing Lens Distortion
 3) **Lesson 3:** Pose Estimation using PNP and Fiducials/Markers
+4) **Lesson 4:** Stereo Vision: Calibrated Cameras
 
 # Getting Started
 
@@ -21,7 +18,7 @@ inside of it.
 Quick Start Instructions:
 
 1) Setup your development environment
-3) Clone the repo locall on your computer
+3) Clone the repo locally on your computer
 4) Open in IntelliJ
 5) Start Lesson01
 
@@ -61,6 +58,12 @@ sudo apt-get install oracle-java8-installer
 ```
 ### Windows
 
+* Access [Oracle's website](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* Read and accept the license
+* Download the Java SE Development Kit (JDK) jdk-8u191-windows-i586.exe or jdk-8u191-windows-x64.exe depending on 
+your Window's architecture (if you don't know which is, download the first one).
+* Install the JDK
+
 ### Mac OS X
 
 ## Installing IntelliJ
@@ -72,3 +75,6 @@ of times.
 * To run any example with a main function, right click it and select run.
 
 # Reading Material
+
+1) [Multview Geometry in Computer Vision 2nd](http://www.robots.ox.ac.uk/~vgg/hzbook/)
+2) [Stanford CS231A Fall 2014](http://cvgl.stanford.edu/teaching/cs231a_winter1415/schedule.html)

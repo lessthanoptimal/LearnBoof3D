@@ -14,5 +14,7 @@ Topics:
 
 Reading List
 * Multiview Book:
-* CS231A: 
+  * Chapter 6 "Camera Models"
+  * Chapter 7 "Computation of the Camera Matrix"
+* CS231A:
   * Lecture 2 "Camera Models"

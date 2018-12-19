@@ -12,6 +12,7 @@ Topics:
 
 Reading List
 * Multiview Book:
+  * Chapter 8 "More Single View Geometry"
 * CS231A: 
   * Lecture 3 "Camera Models II and Camera Calibration"
 
