@@ -7,7 +7,7 @@ import boofcv.gui.RenderCalibrationTargetsGraphics2D;
 import boofcv.io.image.ConvertBufferedImage;
 import boofcv.io.image.UtilImageIO;
 import boofcv.simulation.SimulatePlanarWorld;
-import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.calib.CameraPinholeBrown;
 import boofcv.struct.image.GrayF32;
 import georegression.struct.se.Se3_F64;
 
@@ -70,7 +70,7 @@ public class GenerateSimulatedMarkers {
         return marker;
     }
 
-    public static GrayF32 render(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeRadial intrinsic )
+    public static GrayF32 render(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeBrown intrinsic )
     {
         double unitToPixels = 1;
         int padding = 20;
@@ -90,7 +90,7 @@ public class GenerateSimulatedMarkers {
 
         return simulator.getOutput();
     }
-    public static BufferedImage renderB(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeRadial intrinsic )
+    public static BufferedImage renderB(ConfigChessboard config , Se3_F64 markerToCamera , CameraPinholeBrown intrinsic )
     {
         GrayF32 gray = render(config, markerToCamera, intrinsic);
 

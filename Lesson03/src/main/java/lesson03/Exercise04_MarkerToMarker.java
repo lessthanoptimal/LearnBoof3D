@@ -1,12 +1,12 @@
 package lesson03;
 
 import boofcv.abst.fiducial.SquareImage_to_FiducialDetector;
-import boofcv.alg.distort.radtan.LensDistortionRadialTangential;
+import boofcv.alg.distort.brown.LensDistortionBrown;
 import boofcv.factory.fiducial.ConfigFiducialImage;
 import boofcv.factory.fiducial.FactoryFiducial;
 import boofcv.gui.image.ShowImages;
 import boofcv.io.image.ConvertBufferedImage;
-import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.calib.CameraPinholeBrown;
 import boofcv.struct.image.GrayF32;
 import georegression.struct.point.Point2D_F64;
 import georegression.struct.point.Point3D_F64;
@@ -25,9 +25,9 @@ public class Exercise04_MarkerToMarker {
         double markerLength = 0.2;
 
         // Camera model with lens distortion to make it more realistic
-        CameraPinholeRadial pinhole =  new CameraPinholeRadial(250,250,0,320,240,640,480)
+        CameraPinholeBrown pinhole =  new CameraPinholeBrown(250,250,0,320,240,640,480)
                 .fsetRadial(-0.05,0.001);
-        LensDistortionRadialTangential distortion = new LensDistortionRadialTangential(pinhole);
+        LensDistortionBrown distortion = new LensDistortionBrown(pinhole);
 
         //-----------------------------------------------------------------
         // We will use a premade fiducial detector. This one detects squares with images inside. These are

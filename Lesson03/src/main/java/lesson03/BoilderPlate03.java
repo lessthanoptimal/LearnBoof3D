@@ -1,7 +1,7 @@
 package lesson03;
 
 import boofcv.simulation.SimulatePlanarWorld;
-import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.calib.CameraPinholeBrown;
 import boofcv.struct.image.GrayF32;
 import georegression.geometry.ConvertRotation3D_F64;
 import georegression.struct.se.Se3_F64;
@@ -121,7 +121,7 @@ public class BoilderPlate03 {
     /**
      * Hey I intentionally put the code here so that you wouldn't look and cheat!
      */
-    public static GrayF32 renderTwoMarkers(double markerLength, CameraPinholeRadial pinhole) {
+    public static GrayF32 renderTwoMarkers(double markerLength, CameraPinholeBrown pinhole) {
         Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXyz(-0.2,0,0.2,0.5,Math.PI,0,null);
         Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXyz(0.3,0,0.25,0,Math.PI,0.3,null);
 
@@ -138,7 +138,7 @@ public class BoilderPlate03 {
         return sim.getOutput();
     }
 
-    public static GrayF32 renderViewInSequence( double markerLength , CameraPinholeRadial pinhole , int frame )
+    public static GrayF32 renderViewInSequence( double markerLength , CameraPinholeBrown pinhole , int frame )
     {
         Se3_F64 a_to_world = SpecialEuclideanOps_F64.eulerXyz(-0.3,0,0.05,0.3,Math.PI-0.3,0,null);
         Se3_F64 b_to_world = SpecialEuclideanOps_F64.eulerXyz(0.5,0,0,0,Math.PI,0.3,null);

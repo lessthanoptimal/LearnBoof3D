@@ -2,7 +2,7 @@ package lesson02;
 
 import boofcv.abst.fiducial.calib.ConfigChessboard;
 import boofcv.io.image.UtilImageIO;
-import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.calib.CameraPinholeBrown;
 import georegression.struct.se.Se3_F64;
 import georegression.struct.se.SpecialEuclideanOps_F64;
 import org.apache.commons.io.FileUtils;
@@ -30,8 +30,8 @@ public class Exercise01_Render {
      * @throws IOException
      */
     public static void createGoodSet() throws IOException {
-        CameraPinholeRadial pinhole =
-                new CameraPinholeRadial(250,250,0,640/2,480/2,640,480)
+        CameraPinholeBrown pinhole =
+                new CameraPinholeBrown(250,250,0,640/2,480/2,640,480)
                         .fsetRadial(-0.05,0.001);
         ConfigChessboard chessboard = new ConfigChessboard(5,7,20);
 
@@ -57,8 +57,8 @@ public class Exercise01_Render {
      * targets with exactly the same orientation and depth.
      */
     public static void createBadSet() throws IOException {
-        CameraPinholeRadial pinhole =
-                new CameraPinholeRadial(250,250,0,640/2,480/2,640,480)
+        CameraPinholeBrown pinhole =
+                new CameraPinholeBrown(250,250,0,640/2,480/2,640,480)
                         .fsetRadial(-0.05,0.001);
         ConfigChessboard chessboard = new ConfigChessboard(5,7,20);
 
@@ -76,7 +76,7 @@ public class Exercise01_Render {
         generate(pinhole, chessboard, markerToCameras, directory);
     }
 
-    private static void generate(CameraPinholeRadial pinhole,
+    private static void generate(CameraPinholeBrown pinhole,
                                  ConfigChessboard chessboard,
                                  List<Se3_F64> markerToCameras,
                                  File directory) throws IOException

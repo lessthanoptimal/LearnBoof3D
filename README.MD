@@ -1,13 +1,21 @@
 Welcome to the BoofCV 3D computer vision tutorial. This will step you through several exercises which will start
-very simple and build up in complexity. Each lession state required reading will assume that you have read through 
-the reading list and are familiar with the math. 
+very simple and build up in complexity. These lessons take a hands on approach to 3D computer vision and attempt
+to replicate how problems are tackled in the real world. Visualization and observation based error metrics are 
+emphasized.
 
 # Overview
 
 1) **Lesson 1:** Image Formation Pinhole camera
 2) **Lesson 2:** Camera Calibration and Removing Lens Distortion
 3) **Lesson 3:** Pose Estimation using PNP and Fiducials/Markers
-4) **Lesson 4:** Stereo Vision: Calibrated Cameras
+4) **Lesson 4:** (IN PROGRESS) Stereo Vision: Calibrated Cameras
+5) **Lesson 5:** (FUTURE) Removing Perspective Distortion
+5) **Lesson 6:** (FUTURE) Image Stitching
+6) **Lesson 7:** (FUTURE) Visual Odometry
+7) **Lesson 8:** (FUTURE) Projective Reconstruction
+8) **Lesson 9:** (FUTURE) Self Calibration
+9) **Lesson 10:** (FUTURE) 3-View Scene Reconstruction
+
 
 # Getting Started
 

@@ -44,7 +44,7 @@ public class AddImageNoise {
         }
 
         // Make the noise correlated
-        BlurImageOps.mean(noise,noise2,1,tmp);
+        BlurImageOps.mean(noise,noise2,1,tmp,null);
 
         // Add the noise and reduce the dynamic range of gray scale
         for (int i = 0; i < image.data.length; i++) {

@@ -4,12 +4,12 @@ import boofcv.abst.fiducial.calib.ConfigChessboard;
 import boofcv.alg.distort.AdjustmentType;
 import boofcv.alg.distort.ImageDistort;
 import boofcv.alg.distort.LensDistortionOps;
-import boofcv.core.image.border.BorderType;
 import boofcv.gui.ListDisplayPanel;
 import boofcv.gui.image.ShowImages;
 import boofcv.io.image.ConvertBufferedImage;
+import boofcv.struct.border.BorderType;
 import boofcv.struct.calib.CameraPinhole;
-import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.calib.CameraPinholeBrown;
 import boofcv.struct.image.GrayF32;
 import boofcv.struct.image.ImageType;
 import georegression.struct.point.Point3D_F64;
@@ -34,15 +34,15 @@ public class Exercise05_Projecting {
         // Render two images with and without distortion
         // Create BufferedImages for visualization
         //
-        CameraPinholeRadial pinhole =
-                new CameraPinholeRadial(250,250,0,320,240,640,480)
+        CameraPinholeBrown pinhole =
+                new CameraPinholeBrown(250,250,0,320,240,640,480)
                         .fsetRadial(-0.05,0.001);
         ConfigChessboard chessboard = new ConfigChessboard(20,20,20);
 
         Se3_F64 markerToCamera = SpecialEuclideanOps_F64.eulerXyz(0,0,125,0,PI,0,null);
         GrayF32 distorted = GenerateSimulatedMarkers.render(chessboard, markerToCamera, pinhole);
 
-        CameraPinhole pinholeNoRadial = new CameraPinholeRadial(250,250,0,320,240,640,480);
+        CameraPinhole pinholeNoRadial = new CameraPinholeBrown(250,250,0,320,240,640,480);
 
         CameraPinhole pinholeModified = new CameraPinhole();
 

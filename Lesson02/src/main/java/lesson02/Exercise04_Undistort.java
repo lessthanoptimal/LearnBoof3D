@@ -4,11 +4,11 @@ import boofcv.abst.fiducial.calib.ConfigChessboard;
 import boofcv.alg.distort.AdjustmentType;
 import boofcv.alg.distort.ImageDistort;
 import boofcv.alg.distort.LensDistortionOps;
-import boofcv.core.image.border.BorderType;
 import boofcv.gui.ListDisplayPanel;
 import boofcv.gui.image.ShowImages;
+import boofcv.struct.border.BorderType;
 import boofcv.struct.calib.CameraPinhole;
-import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.calib.CameraPinholeBrown;
 import boofcv.struct.image.GrayF32;
 import boofcv.struct.image.ImageType;
 import georegression.struct.se.Se3_F64;
@@ -22,8 +22,8 @@ import static java.lang.Math.PI;
  */
 public class Exercise04_Undistort {
     public static void main(String[] args) {
-        CameraPinholeRadial pinhole =
-                new CameraPinholeRadial(250,250,0,640/2,480/2,640,480)
+        CameraPinholeBrown pinhole =
+                new CameraPinholeBrown(250,250,0,640/2,480/2,640,480)
                         .fsetRadial(-0.05,0.001);
         ConfigChessboard chessboard = new ConfigChessboard(20,20,20);
 
@@ -31,7 +31,7 @@ public class Exercise04_Undistort {
         GrayF32 distorted = GenerateSimulatedMarkers.render(chessboard, markerToCamera, pinhole);
 
         // Same camera parameters but without lens distortion
-        CameraPinhole pinholeNoRadial = new CameraPinholeRadial(250,250,0,640/2,480/2,640,480);
+        CameraPinhole pinholeNoRadial = new CameraPinholeBrown(250,250,0,640/2,480/2,640,480);
 
         // The previous exercise was a very simplistic way to undistort images. Remember how pixels could be outside
         // the image? Maybe we want to change the scale so that all the pixels are inside. The functions below

@@ -3,7 +3,7 @@ package lesson01;
 import boofcv.alg.geo.PerspectiveOps;
 import boofcv.gui.feature.VisualizeFeatures;
 import boofcv.gui.image.ShowImages;
-import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.calib.CameraPinholeBrown;
 import georegression.geometry.GeometryMath_F64;
 import georegression.geometry.UtilPoint3D_F64;
 import georegression.struct.point.Point2D_F64;
@@ -28,7 +28,7 @@ public class Exercise03_LensDistortion {
         List<Point3D_F64> cloud = UtilPoint3D_F64.random(new Point3D_F64(0,0,1.25),-1,1,400,rand);
 
         // Specify the camera model for our synthetic camera
-        CameraPinholeRadial intrinsic = new CameraPinholeRadial()
+        CameraPinholeBrown intrinsic = new CameraPinholeBrown()
                 // Specify the calibration matrix K
                 .fsetK(250,250,0,300,300,600,600)
                 // Specify radial distortion terms

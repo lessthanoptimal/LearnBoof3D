@@ -1,12 +1,12 @@
 package lesson01;
 
-import boofcv.alg.distort.radtan.LensDistortionRadialTangential;
+import boofcv.alg.distort.brown.LensDistortionBrown;
 import boofcv.alg.geo.WorldToCameraToPixel;
 import boofcv.gui.feature.VisualizeFeatures;
 import boofcv.gui.image.ImagePanel;
 import boofcv.gui.image.ShowImages;
 import boofcv.misc.BoofMiscOps;
-import boofcv.struct.calib.CameraPinholeRadial;
+import boofcv.struct.calib.CameraPinholeBrown;
 import georegression.geometry.ConvertRotation3D_F64;
 import georegression.geometry.UtilPoint3D_F64;
 import georegression.struct.EulerType;
@@ -36,13 +36,13 @@ public class Exercise04_LibraryTools {
         List<Point3D_F64> cloud = UtilPoint3D_F64.random(new Point3D_F64(0,0,1.25),-1,1,400,rand);
 
         // Specify the camera model for our synthetic camera
-        CameraPinholeRadial intrinsic = new CameraPinholeRadial()
+        CameraPinholeBrown intrinsic = new CameraPinholeBrown()
                 .fsetK(250,250,0,300,300,600,600)
                 .fsetRadial(0.1,0.05);
 
         // This handy class will let you create transforms for applying and removing lens distortion
         // in pixels and normalized image coordinates
-        LensDistortionRadialTangential factoryRadial = new LensDistortionRadialTangential(intrinsic);
+        LensDistortionBrown factoryRadial = new LensDistortionBrown(intrinsic);
         // There's another LensDistortion class for pinhole models. I even tell you the name of the class below.
 
         // Now we have this class. It will take a point in world coordinates then find the image pixel
