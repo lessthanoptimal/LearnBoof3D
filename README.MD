@@ -1,7 +1,11 @@
-Welcome to the BoofCV 3D computer vision tutorial. This will step you through several exercises which will start
-very simple and build up in complexity. These lessons take a hands on approach to 3D computer vision and attempt
-to replicate how problems are tackled in the real world. Visualization and observation based error metrics are 
-emphasized.
+Welcome to Learn Boof3D tutorial. This tutorial is designed to teach you how to apply lessons learned from text books 
+such as "Multi View Geometry" by Hartley and Zisserman. As the name suggests, you will be using the BoofCV computer
+vision library, which has one of the more complete and advanced API's for this topic. A heavy emphasis is placed on
+visualization, empirical testing, and low level implementation details often not mentioned or understated in text.
+
+This tutorial is broken up into lessons. It's recommended that you complete each lesson in order since they
+will build upon each other. The lessons have several exercises each and a "readme" file which cites recommended
+ reading. The exercises start out as very simple and build up the complexity.
 
 # Overview
 
