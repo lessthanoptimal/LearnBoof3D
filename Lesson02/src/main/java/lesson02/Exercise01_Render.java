@@ -41,7 +41,7 @@ public class Exercise01_Render {
         markerToCameras.add(SpecialEuclideanOps_F64.eulerXyz(50,0,120,0.2,PI,0.1,null));
         markerToCameras.add(SpecialEuclideanOps_F64.eulerXyz(0,50,120,0.0,PI-0.3,0.0,null));
         markerToCameras.add(SpecialEuclideanOps_F64.eulerXyz(-80,0,110,-0.3,PI-0.2,0.0,null));
-        markerToCameras.add(SpecialEuclideanOps_F64.eulerXyz(0.0,0,-80,130,0.1,PI-0.1,null));
+        markerToCameras.add(SpecialEuclideanOps_F64.eulerXyz(0.0,-80,130,0.1,PI-0.1,0.0,null));
         markerToCameras.add(SpecialEuclideanOps_F64.eulerXyz(-50,50,104,0.1,PI,0.4,null));
         markerToCameras.add(SpecialEuclideanOps_F64.eulerXyz(-80,50,120,0.1,PI+0.2,0.2,null));
         markerToCameras.add(SpecialEuclideanOps_F64.eulerXyz(70,30,100,0.1,PI,0.3,null));

@@ -33,8 +33,9 @@ public class Exercise03_Undistort {
         // It's needed because you undistorted by stepping through every undistorted image and find the equivalent pixel
         // in the distorted image
         Point2Transform2_F32 p2p = new LensDistortionBrown(pinhole).distort_F32(true, true);
-        // Why 32-bit? There is often no need for using 64-bit doubles and you can reduce memory overhead by
-        // using floats to lots of code uses floats instead.
+        // Why 32-bit? There is often no need for using 64-bit doubles to store pixel coordinates and you can reduce
+        // memory overhead significantly by using floats instead. For geometric calculations 64-bit precision is
+        // often very useful.
 
         // Undistort by going through each undistorted pixel and finding the location in the distorted image
         GrayF32 undistorted = distorted.createSameShape();
@@ -46,7 +47,7 @@ public class Exercise03_Undistort {
 
                 // The result is a floating point number, but we can only read integer values for pixels.
                 // We will simply typecast it to an int. This is actually not what you want to do. Ideally you
-                // you would round. typecast floors towards zero
+                // you would round. typecast floors towards zero, e.g. 1.99 -> 1 and -0.99 -> 0
                 int pixelX = (int)p.x;
                 int pixelY = (int)p.y;
                 // What we just did above is a poorly implemented nearest-neighbor interpolation
